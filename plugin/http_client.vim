@@ -30,12 +30,12 @@ if !exists('http_client_preserve_responses')
 endif
 
 function! s:DoHTTPRequest()
-  if has('python')
-    command! -nargs=1 Python python <args>
-    command! -nargs=1 Pyfile pyfile <args>
-  elseif has('python3')
+  if has('python3')
     command! -nargs=1 Python python3 <args>
     command! -nargs=1 Pyfile py3file <args>
+  elseif has('python')
+    command! -nargs=1 Python python <args>
+    command! -nargs=1 Pyfile pyfile <args>
   else
     echo 'Error: this plugin requires vim compiled with python support.'
     finish
